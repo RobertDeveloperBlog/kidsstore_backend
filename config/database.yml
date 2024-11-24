@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: 5
+  username: root # Замените на имя вашего пользователя MySQL
+  password: password # Замените на пароль вашего пользователя MySQL
+  host: localhost # Если база на локальном сервере
+
+development:
+  <<: *default
+  database: kidsstore_development # Замените на имя базы данных для разработки
+
+test:
+  <<: *default
+  database: kidsstore_test # Замените на имя базы данных для тестов
+
+production:
+  <<: *default
+  database: kidsstore_production # Замените на имя базы данных для продакшна
+  username: root # Укажите пользователя для продакшна
+  password: <%= ENV['DATABASE_PASSWORD'] %> # Рекомендуется использовать переменные окружения для пароля
+
