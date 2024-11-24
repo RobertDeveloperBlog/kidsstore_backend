@@ -1,0 +1,2 @@
+class Kidstore < ApplicationRecord
+end
